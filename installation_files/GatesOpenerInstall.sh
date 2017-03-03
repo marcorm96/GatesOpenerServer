@@ -9,7 +9,10 @@ sudo pip3 install pymysql
 sudo pip3 install RPi.GPIO
 #MySQL 
 sudo apt-get install mysql-server mysql-common mysql-client -y
+
+chmod +x cambia_valori.sh
+./cambia_valori.sh
+
 #esecuzione query
 mysql -u root -p < script_db.sql
 
-sed -i "s/192.168.1.50/192.168.1.228/g" *.*
