@@ -10,6 +10,8 @@ sudo pip3 install RPi.GPIO
 #MySQL 
 sudo apt-get install mysql-server mysql-common mysql-client -y
 
+clear
+
 chmod +x cambia_valori.sh
 ./cambia_valori.sh
 
