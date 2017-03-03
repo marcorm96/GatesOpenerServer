@@ -10,7 +10,7 @@ import comandaGPIO
 #funzione che esegue la query passata
 def eseguiQuery(query,multi):
 	try:
-		con = mdb.connect('localhost', 'gatesopener', 'gopwd', 'gatesopener');
+		con = mdb.connect('localhost', 'gatesopener', 'gopwd', 'gatesopenerdb');
 
 		cur = con.cursor()
 		cur.execute(query)
