@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Elenco Utenti GatesOpener</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="pragma" content="no-cache">	
+  </head>
+  <body bgcolor="SKYBLUE">	
+    <div class="container">
+		<CENTER>
+			<h1>Utenti abilitati</h1>
+			<form action="http://IPRPI:5000/gestioneUtenti/disabilita" method="post"> 
+				<select name="abilitati">
+					{% for a in abilitati %}
+						<option value="{{ a[0] }}">{{ a[1] }} {{ a[2] }}-{{ a[3] }}</option>  			
+					{% endfor %}	
+				</select>
+				<input type="hidden" name="idUtenteLoggato" value="{{ idUtenteLoggato }}">
+				<br><br>
+				<input type="submit" value="Disabilita">  	
+				<br>
+			</form>
+			<h1>Utenti disabilitati</h1>
+			<form action="http://IPRPI:5000/gestioneUtenti/abilita" method="post"> 
+				<select name="disabilitati">
+					{% for d in disabilitati %}
+						<option value="{{ d[0] }}">{{ d[1] }} {{ d[2] }}-{{ d[3] }}</option>  			
+					{% endfor %}	
+				</select>
+				<input type="hidden" name="idUtenteLoggato" value="{{ idUtenteLoggato }}">
+				<br><br>
+				<input type="submit" value="Abilita"> 
+			</form>
+			<h1>{{msg}}</h1>
+		</CENTER>
+    </div>
+  </body>
+</html>

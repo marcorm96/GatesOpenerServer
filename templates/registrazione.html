@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Registrazione Utente GatesOpener</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />    
+    <meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="pragma" content="no-cache">
+    <script language="JavaScript">
+			function controllo() {
+				//questa funzione controlla se tutti i campi sono stati compilati correttamente
+				var registrazione=document.registrazione;
+				if((registrazione.nome.value=="") || (registrazione.cognome.value==""))
+					alert("Compilare tutti i campi")				
+				//se sono corretti viene eseguito il submit del form
+				else
+					registrazione.submit();
+			}
+		</script>		
+  </head>
+  <body bgcolor="SKYBLUE">	
+    <div class="container">
+		<CENTER>
+			<h1>Inserimento dati</h1>
+			<br>
+			<form action="http://IPRPI:5000/registrazione" name="registrazione" method="post">
+				<input type="text" placeholder="Nome" name="nome" value="{{request.form.nome }}">
+				<br><br>
+				<input type="text" placeholder="Cognome" name="cognome" value="{{request.form.cognome }}">
+				<br><br>								
+				<input type="text" name="imei" value="{{ imei }}" readonly>
+				<br><br>
+				<input type="hidden" name="idUtenteLoggato" value="{{ idUtenteLoggato }}">				
+				<input type="button" value="Registra" onClick="controllo()">
+			</form>				
+		</CENTER>
+    </div>
+  </body>
+</html>

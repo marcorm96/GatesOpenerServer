@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Login GatesOpener</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />    
+    <meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="pragma" content="no-cache">
+    <script language="JavaScript">
+			function controllo() {
+				//questa funzione controlla se tutti i campi sono stati compilati correttamente
+				var login=document.login;
+				if((login.email.value=="") || (login.password.value==""))
+					alert("Compilare tutti i campi")				
+				//se sono corretti viene eseguito il submit del form
+				else
+					login.submit();
+			}
+		</script>		
+  </head>
+  <body bgcolor="SKYBLUE">	
+    <div class="container">
+		<CENTER>
+			<h1>Login</h1>
+			<br>
+			<h1>{{err}}</h1>
+			<br>
+			<form action="http://IPRPI:5000/login" name="login" method="post">
+				<input type="email" placeholder="Email" name="email" value="{{request.form.email }}">
+				<br><br>
+				<input type="password" placeholder="Password" name="password" value="{{request.form.password }}">
+				<br><br>				
+				<input type="hidden" name="imei" value="{{ imei }}">				
+				<input type="hidden" name="prossimaAzione" value="{{ prossimaAzione }}">
+				<input type="button" value="Login" onClick="controllo()">
+			</form>				
+		</CENTER>
+    </div>
+  </body>
+</html>
